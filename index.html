@@ -53,6 +53,10 @@ body.ar .cat h3{letter-spacing:0}
 .item{display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px dashed var(--line)} .item:last-child{border:0}
 .item .n{flex:1;font-weight:500} .item .n em{display:block;font-style:normal;font-size:12.5px;color:var(--muted);font-weight:400}
 .item .p{font-weight:700;color:var(--wine);white-space:nowrap}
+.item .th{width:68px;height:68px;flex:0 0 68px;border-radius:12px;object-fit:cover;background:var(--line)}
+.item .n b.p2{display:block;color:var(--wine);margin-top:4px}
+@media(max-width:640px){.cat{padding:18px 14px 8px}}
+.item .n i{display:block;font-style:normal;font-size:12.5px;color:var(--muted);margin-top:3px;line-height:1.4}
 .add{width:34px;height:34px;flex:0 0 34px;border-radius:50%;border:1.5px solid var(--gold);background:#fff;color:var(--wine);font-size:20px;line-height:1;cursor:pointer}
 .add.on{background:var(--wine);border-color:var(--wine);color:#fff}
 .note{font-size:12.5px;color:var(--muted);margin-top:18px}
@@ -112,7 +116,7 @@ body.has-cart .fab,body.has-cart .demo{display:none}
   <h2 data-t="menu_h">Speisekarte</h2>
   <p class="sub" data-t="menu_sub">Wähle dein Essen aus und schick die Bestellung direkt per WhatsApp – ohne App, ohne Provision.</p>
   <div class="menu-grid" id="menuGrid"></div>
-  <p class="note" data-t="menu_note">Preise laut Menütafel im Laden.</p>
+  <p class="note" data-t="menu_note">Preise laut Menütafel im Laden. Fotos: Beispielbilder.</p>
 </div></section>
 
 <section class="why"><div class="wrap">
@@ -145,7 +149,7 @@ body.has-cart .fab,body.has-cart .demo{display:none}
 
 <footer><div class="wrap">
   <div><b style="color:#fff">Falafel Sahyoun</b><br>Maxstraße 19A, 13347 Berlin</div>
-  <div><a href="#" data-t="imp">Impressum</a> · <a href="#" data-t="dsg">Datenschutz</a></div>
+  <div><a href="#" data-t="imp">Impressum</a> · <a href="#" data-t="dsg">Datenschutz</a><br><small style="opacity:.6">Foto Manakish Zaatar: Elie.ghob, CC BY-SA 4.0, Wikimedia Commons · weitere Fotos: Unsplash</small></div>
 </div></footer>
 
 <div class="cart" id="cart">
@@ -157,8 +161,8 @@ body.has-cart .fab,body.has-cart .demo{display:none}
 <svg width="0" height="0" style="position:absolute"><defs><path id="waPath" d="M16 3C9 3 3.3 8.7 3.3 15.7c0 2.3.6 4.5 1.8 6.4L3 29l7.1-1.9c1.8 1 3.9 1.5 5.9 1.5 7 0 12.7-5.7 12.7-12.7S23 3 16 3zm0 23.2c-1.9 0-3.8-.5-5.4-1.5l-.4-.2-4.2 1.1 1.1-4.1-.3-.4c-1.1-1.7-1.6-3.6-1.6-5.5C5.2 9.8 10 5 16 5s10.8 4.8 10.8 10.7S21.9 26.2 16 26.2zm5.9-8c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7.1c-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2s0-.5.1-.6l.5-.6c.2-.2.2-.3.3-.5s0-.4 0-.6-.7-1.7-1-2.3c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4s-1.2 1.1-1.2 2.7 1.2 3.1 1.3 3.4c.2.2 2.3 3.5 5.6 4.9 2.8 1.1 3.3.9 3.9.8.6-.1 1.9-.8 2.2-1.5s.3-1.4.2-1.5c-.1-.2-.3-.3-.6-.4z"/></defs></svg>
 <script>
 const PHONE="491777867654", NAME="Falafel Sahyoun";
-const MENU=[{"cat": "Sandwiches", "ar": "سندويشات", "items": [["Falafel Sandwich", "سندويش فلافل", "4,50 €"], ["Falafel + Halloumi", "سندويش فلافل + حلومي", ""], ["Makali Sandwich", "سندويش مقالي", ""], ["Batata Harra Sandwich", "سندويش بطاطا حرة", ""], ["Schawarma Sandwich", "سندويش شاورما", ""], ["Tawook Sandwich", "سندويش طاووق", ""]]}, {"cat": "Teller & Manakish", "ar": "صحون ومناقيش", "items": [["Falafel Teller", "وجبة فلافل", ""], ["Schawarma Teller", "وجبة شاورما", ""], ["Manakish Zaatar", "منقوشة زعتر", ""], ["Manakish Käse", "منقوشة جبنة", ""], ["Lahm bi Ajeen", "لحم بعجين", ""]]}];
-const T={ar:{"nav_visit": "الموقع والدوام", "cta_route": "خريطة الطريق", "visit_h": "الموقع وأوقات الدوام", "cta_wa": "راسلنا واتساب", "imp": "Impressum", "dsg": "Datenschutz", "clear": "امسح", "send": "ابعت عالواتساب", "nav_menu": "المنيو", "tag": "فلافل صهيون · Maxstraße 19A", "h1": "فلافل مقرمشة وطازة.", "lead": "فلافل، شاورما، مناقيش وصحون — كل يوم من ٩ لـ ٢٢ بالفيدينغ. حلال. اطلب مباشرة عالواتساب.", "cta_order": "اطلب عالواتساب", "stars": "· ٨٧ تقييم على Google", "menu_h": "المنيو", "menu_sub": "اختار أكلك وابعت الطلب مباشرة عالواتساب — بلا تطبيق وبلا عمولة.", "menu_note": "الأسعار حسب لوحة المحل.", "why_h": "اطلب مباشرة", "why_sub": "بلا عمولة Lieferando — طلبك بيوصلنا مباشرة.", "gal_h": "عند صهيون", "rev_h": "شو بيقولوا زبائننا", "f0": "كل يوم ٩–٢٢", "f1": "٨٧ تقييم", "f2": "سندويش فلافل من ٤٫٥٠ €", "w0h": "طازة كل يوم", "w0p": "فلافل مقرمشة من برا وطرية من جوا.", "w1h": "حلال", "w1p": "كل شي حلال — سندويشات، صحون ومناقيش.", "w2h": "Maxstraße 19A", "w2p": "كل يوم ٩–٢٢ بالفيدينغ."}};
+const MENU=[{"cat": "Sandwiches", "ar": "سندويشات", "items": [["Falafel Sandwich", "سندويش فلافل", "4,50 €", "Falafel, Hummus, Tomaten, Salat, eingelegte Gurken, Petersilie, Tahini", "فلافل، حمص، بندورة، خس، خيار مخلل، بقدونس، طحينة", "https://images.unsplash.com/photo-1632700081098-37dc1285cbfe?w=240&h=240&fit=crop&q=70"], ["Falafel + Halloumi", "سندويش فلافل + حلومي", "", "Falafel, gegrillter Halloumi, Salat, Tomaten, Tahini", "فلافل، جبنة حلومي مشوية، خس، بندورة، طحينة", "https://images.unsplash.com/photo-1788538397125-8fef2bf2af0b?w=240&h=240&fit=crop&q=70"], ["Makali Sandwich", "سندويش مقالي", "", "Frittierter Blumenkohl, Aubergine & Kartoffeln, Salat, Tahini", "قرنبيط وباذنجان وبطاطا مقلية، خس، طحينة", "https://images.unsplash.com/photo-1696265498747-efc4c0dd7b98?w=240&h=240&fit=crop&q=70"], ["Batata Harra Sandwich", "سندويش بطاطا حرة", "", "Würzige Kartoffeln mit Knoblauch, Koriander & Chili, Salat", "بطاطا حرة مع ثوم وكزبرة وفليفلة، خس", "https://images.unsplash.com/photo-1633959639799-6d3f66e05710?w=240&h=240&fit=crop&q=70"], ["Schawarma Sandwich", "سندويش شاورما", "", "Schawarma, Knoblauchcreme, eingelegte Gurken, Tomaten", "شاورما، ثومية، خيار مخلل، بندورة", "https://images.unsplash.com/photo-1676300187347-6f60002fd83e?w=240&h=240&fit=crop&q=70"], ["Tawook Sandwich", "سندويش طاووق", "", "Mariniertes Hähnchen vom Grill, Knoblauchcreme, eingelegte Gurken", "دجاج متبّل مشوي، ثومية، خيار مخلل", "https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=240&h=240&fit=crop&q=70"]]}, {"cat": "Teller & Manakish", "ar": "صحون ومناقيش", "items": [["Falafel Teller", "وجبة فلافل", "", "Falafel, Hummus, Salat, Pommes, Tahini, Brot", "فلافل، حمص، سلطة، بطاطا، طحينة، خبز", "https://images.unsplash.com/photo-1786174045057-89e6449f47d9?w=240&h=240&fit=crop&q=70"], ["Schawarma Teller", "وجبة شاورما", "", "Schawarma, Pommes, Salat, Knoblauchcreme, Brot", "شاورما، بطاطا، سلطة، ثومية، خبز", "https://images.unsplash.com/photo-1736928634472-abd43ed645a9?w=240&h=240&fit=crop&q=70"], ["Manakish Zaatar", "منقوشة زعتر", "", "Frisch gebacken mit Za'atar & Olivenöl", "مخبوزة طازة مع زعتر وزيت زيتون", "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/09/Zaatar_Mankousheh.jpg/500px-Zaatar_Mankousheh.jpg"], ["Manakish Käse", "منقوشة جبنة", "", "Frisch gebacken mit Käse", "مخبوزة طازة مع جبنة", "https://images.unsplash.com/photo-1787690376659-e5e7cd2ae452?w=240&h=240&fit=crop&q=70"], ["Lahm bi Ajeen", "لحم بعجين", "", "Dünner Teig mit Hackfleisch, Tomaten & Zwiebeln", "عجينة رقيقة مع لحمة مفرومة وبندورة وبصل", "https://images.unsplash.com/photo-1777891257696-29f0d175f236?w=240&h=240&fit=crop&q=70"]]}];
+const T={ar:{"nav_visit": "الموقع والدوام", "cta_route": "خريطة الطريق", "visit_h": "الموقع وأوقات الدوام", "cta_wa": "راسلنا واتساب", "imp": "Impressum", "dsg": "Datenschutz", "clear": "امسح", "send": "ابعت عالواتساب", "nav_menu": "المنيو", "tag": "فلافل صهيون · Maxstraße 19A", "h1": "فلافل مقرمشة وطازة.", "lead": "فلافل، شاورما، مناقيش وصحون — كل يوم من ٩ لـ ٢٢ بالفيدينغ. حلال. اطلب مباشرة عالواتساب.", "cta_order": "اطلب عالواتساب", "stars": "· ٨٧ تقييم على Google", "menu_h": "المنيو", "menu_sub": "اختار أكلك وابعت الطلب مباشرة عالواتساب — بلا تطبيق وبلا عمولة.", "menu_note": "الأسعار حسب لوحة المحل. الصور للتوضيح.", "why_h": "اطلب مباشرة", "why_sub": "بلا عمولة Lieferando — طلبك بيوصلنا مباشرة.", "gal_h": "عند صهيون", "rev_h": "شو بيقولوا زبائننا", "f0": "كل يوم ٩–٢٢", "f1": "٨٧ تقييم", "f2": "سندويش فلافل من ٤٫٥٠ €", "w0h": "طازة كل يوم", "w0p": "فلافل مقرمشة من برا وطرية من جوا.", "w1h": "حلال", "w1p": "كل شي حلال — سندويشات، صحون ومناقيش.", "w2h": "Maxstraße 19A", "w2p": "كل يوم ٩–٢٢ بالفيدينغ."}};
 const HOURS=["09:00–22:00", "09:00–22:00", "09:00–22:00", "09:00–22:00", "09:00–22:00", "09:00–22:00", "09:00–22:00"];
 const MSG={"head": "Hallo Falafel Sahyoun! Ich möchte bestellen:", "tail": "Abholung um: ", "gen_de": "Hallo Sahyoun, ich möchte bestellen", "gen_ar": "مرحبا، بدي اطلب"};
 let lang="de", cart={};
@@ -174,8 +178,10 @@ function renderMenu(){
     c.items.forEach((it,ii)=>{
       const id=ci+"-"+ii, nm=lang==="ar"?it[1]:it[0];
       const sub=lang==="ar"?`<em>${it[0]}</em>`:(it[3]?`<em>${it[3]}</em>`:"");
+      const rich=it.length>4;
+      const sub2=rich?`<em>${lang==="ar"?it[0]:it[1]}</em><i>${lang==="ar"?it[4]:it[3]}</i>`:sub;
       const r=document.createElement("div"); r.className="item";
-      r.innerHTML=`<div class="n">${nm}${sub}</div>${it[2]?`<div class="p">${typeof it[2]==="number"?eur(it[2]):it[2]}</div>`:""}<button class="add${cart[id]?" on":""}" data-id="${id}" aria-label="auswählen">${cart[id]?cart[id]:"+"}</button>`;
+      r.innerHTML=`${rich&&it[5]?`<img class="th" loading="lazy" alt="${it[0]}" src="${it[5]}">`:""}<div class="n">${nm}${sub2}${rich&&it[2]?`<b class="p2">${it[2]}</b>`:""}</div>${!rich&&it[2]?`<div class="p">${typeof it[2]==="number"?eur(it[2]):it[2]}</div>`:""}<button class="add${cart[id]?" on":""}" data-id="${id}" aria-label="auswählen">${cart[id]?cart[id]:"+"}</button>`;
       d.appendChild(r);
     });
     g.appendChild(d);
